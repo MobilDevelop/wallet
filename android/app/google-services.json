@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "299979159817",
+    "project_id": "wallet-309d1",
+    "storage_bucket": "wallet-309d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299979159817:android:af42717545d676a2a9bbd8",
+        "android_client_info": {
+          "package_name": "com.ayubxon.wallet_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeiEzoK-t39wxANZDXEigJJ1Y--SCriOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
