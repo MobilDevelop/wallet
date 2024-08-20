@@ -12,39 +12,31 @@ class Helper{
   }
 
 
-  static String printDuration(Duration duration) {
-  String negativeSign = duration.isNegative ? '-' : '';
-  String twoDigits(int n) => n.toString().padLeft(2, "0");
-  String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60).abs());
-  String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60).abs());
-  return "$negativeSign$twoDigitMinutes:$twoDigitSeconds";
-}
+   static String homeDate(DateTime dateTime){
+    
+    int day = dateTime.day;
+    int year = dateTime.year;
 
-  static String timeFormat(String date){
-    DateTime parseDate = DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(date);
-    DateTime inputDate = DateTime.parse(parseDate.toString());  
-    DateFormat outputFormat = DateFormat('hh:mm');
-    String outputDate = outputFormat.format(inputDate);
-    return outputDate;
-  }
-  static String formattingDate(String date){
-    if(date.isNotEmpty){
-    DateTime parseDate = DateFormat('dd-MM-yyyy hh:mm:ss').parse(date);
-    DateTime inputDate = DateTime.parse(parseDate.toString());  
-    DateFormat outputFormat = DateFormat('dd-MM-yyyy HH:mm');
-    String outputDate = outputFormat.format(inputDate);
-    return outputDate;
-    }else{
-      return '';
+    String month = "";
+
+    switch (dateTime.month) {
+      case 1:month = "Yanvar"; break;
+      case 2:month = "Fevral"; break;
+      case 3:month = "Mart"; break;
+      case 4:month = "Aprel"; break;
+      case 5:month = "May"; break;
+      case 6:month = "Iyun"; break;
+      case 7:month = "Iyul"; break;
+      case 8:month = "Avgust"; break;
+      case 9:month = "Sentyabr"; break;
+      case 10:month = "Oktyabr"; break;
+      case 11:month = "Noyabr"; break;
+      case 12:month = "Dekabr"; break;
     }
-  }
 
-   static String dateTimeFormat(String date){
-    DateTime parseDate = DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(date);
-    DateTime inputDate = DateTime.parse(parseDate.toString());  
-    DateFormat outputFormat = DateFormat('yyyy-MM-dd  hh:mm:ss');
-    String outputDate = outputFormat.format(inputDate);
-    return outputDate;
+    
+
+    return "Bugun $day-$month $year-yil";
   }
 
   static bool isEmail(String em) {
@@ -54,17 +46,6 @@ class Helper{
   RegExp regExp = RegExp(p);
 
   return !regExp.hasMatch(em);
-}
-
-
-static String chooseType(int count){
-  switch (count) {
-    case 1:return tr('basket.count1');
-    case 2:return tr('basket.count2');
-    case 3:return tr('basket.count2');
-    case 4:return tr('basket.count2');
-    default: return tr('basket.count');
-  }
 }
 
 
@@ -95,30 +76,4 @@ static String chooseType(int count){
     }
     return count;
   }
-
- static String priceFormat(String numberText) {
-    if (numberText.isEmpty) return "";
-    int number = int.parse(numberText.replaceAll(" ", ""));
-    final List<String> parts = [];
-    final String numberStr = number.toString();
-
-    int i = numberStr.length;
-    while (i > 0) {
-      final int j = i - 3;
-      parts.add(numberStr.substring(j < 0 ? 0 : j, i));
-      i = j;
-    }
-    return parts.reversed.join(' ');
-  }
-
-  static String checkPersend(double oldPrice,double price){
-     if(oldPrice==0){
-      return "0";
-     }
-     double result = (oldPrice-price)/oldPrice*100;
-
-     return "${result.round()} %";
-  }
- 
-
 }
