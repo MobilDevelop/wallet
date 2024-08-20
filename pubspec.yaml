@@ -36,8 +36,7 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   flutter_animate: ^4.5.0
   animations: ^2.0.7
-  add_to_cart_animation: ^2.0.3
-  like_button: ^2.0.5
+  rive: ^0.11.2
 
   # Helpers
   flutter_screenutil: ^5.6.1
@@ -88,6 +87,7 @@ flutter:
     - assets/icons/
     - assets/translations/
     - assets/images/
+    - assets/riv/
     - .env
 
 

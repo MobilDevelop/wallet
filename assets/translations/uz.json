@@ -5,5 +5,12 @@
     "info": "© 2024 — OOO «ISHONCH». Все права защищены.",
     "subtitle": "© 2024 — ISHONCH MChJ. Barcha huquqlar himoyalangan.",
     "save":"Saqlash"
+  },
+
+  "main":{
+    "home":"Home",
+    "expenses":"Harajatlar",
+    "statistic":"Statistika",
+    "profile":"Profile"
   }
 }

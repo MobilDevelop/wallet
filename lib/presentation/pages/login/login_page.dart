@@ -55,7 +55,9 @@ class LoginPage extends StatelessWidget {
                 eyeShow: cubit.eyeShow,
               ),
               
-              MainButton(text: "Log In", onPressed: (){}),
+              MainButton(text: "Log In", onPressed: (){
+                _.push(Routes.main.path);
+              }),
               Gap(ScreenSize.h20),
 
               BorderButton(

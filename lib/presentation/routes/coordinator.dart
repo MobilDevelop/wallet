@@ -1,6 +1,7 @@
 import 'package:wallet_app/presentation/pages/forget/forget_page.dart';
 import 'package:wallet_app/presentation/pages/intro/intro_page.dart';
 import 'package:wallet_app/presentation/pages/login/login_page.dart';
+import 'package:wallet_app/presentation/pages/main/main_page.dart';
 import 'package:wallet_app/presentation/pages/registration/registration_page.dart';
 
 import 'index_routes.dart';
@@ -48,6 +49,16 @@ final GoRouter router = GoRouter(
           context: _,
           state: state,
           child:  const ForgetPage(),
+        ),
+      ),
+
+      GoRoute(
+        name: Routes.main.name,
+        path: Routes.main.path,
+        pageBuilder: (_, state) => buildPageWithDefaultTransition<void>(
+          context: _,
+          state: state,
+          child:  const MainPage(),
         ),
       ),
 

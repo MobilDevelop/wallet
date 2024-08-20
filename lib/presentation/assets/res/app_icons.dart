@@ -18,4 +18,9 @@ class AppIcons {
   static const String image2 = 'assets/images/image2.jpg';
   static const String image3 = 'assets/images/image3.webp';
 
+
+  // riv icons
+  static const String rivicons = 'assets/riv/icons.riv';
+
+
 }
