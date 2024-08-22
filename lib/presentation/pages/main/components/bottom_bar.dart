@@ -18,7 +18,7 @@ class BottomBar extends StatelessWidget {
       padding: EdgeInsets.only(left: ScreenSize.w16,right:ScreenSize.w16,top:ScreenSize.h4,bottom:ScreenSize.h4),
       margin: EdgeInsets.symmetric(horizontal: ScreenSize.w10,vertical: ScreenSize.h15),
       decoration: BoxDecoration(
-        color: AppTheme.colors.primary.withOpacity(.9),
+        color: AppTheme.colors.primary.withOpacity(.8),
         borderRadius: BorderRadius.circular(24.r),
         border: Border.all(
             color: AppTheme.colors.white,

@@ -14,8 +14,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(create: (context) => HomeCubit(),
-    child: BlocListener<HomeCubit,HomeState>(listener: (_, state) {
+    return BlocListener<HomeCubit,HomeState>(listener: (_, state) {
       
     },
     child: Builder(builder: (_) {
@@ -40,7 +39,6 @@ class HomePage extends StatelessWidget {
         )
       ));
     },),
-    ),
     );
   }
 }

@@ -8,20 +8,18 @@ class StatisticPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(create: (context) => StatisticCubit(),
-     child: BlocListener<StatisticCubit,StatisticState>(listener: (_, state) {
-       
-     },
-      child: Builder(builder: (_) {
-        StatisticCubit cubit = _.read<StatisticCubit>();
+    return BlocListener<StatisticCubit,StatisticState>(listener: (_, state) {
+      
+    },
+     child: Builder(builder: (_) {
+       StatisticCubit cubit = _.read<StatisticCubit>();
 
-        return BlocBuilder<StatisticCubit,StatisticState>(builder: (_, state) => Scaffold(
-          body: Center(
-            child: Text("Statistic page"),
-          ),
-        ));
-      },),
-     ),
+       return BlocBuilder<StatisticCubit,StatisticState>(builder: (_, state) => Scaffold(
+         body: Center(
+           child: Text("Statistic page"),
+         ),
+       ));
+     },),
     );
   }
 }
