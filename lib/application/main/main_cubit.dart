@@ -15,6 +15,7 @@ class MainCubit extends Cubit<MainState>{
   int currentIndex = 0;
 
   bool setType = false;
+  bool visibleAdd = false;
 
   Widget currentScreen = Container();
 
@@ -28,6 +29,11 @@ class MainCubit extends Cubit<MainState>{
         case 3:currentScreen = const ProfilePage();   break;
       }
   }
+
+   void setAdd(){
+    visibleAdd = !visibleAdd;
+    emit(MainInitial());
+   }
 
    void onCheck(int index){
    

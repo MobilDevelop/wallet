@@ -22,7 +22,7 @@ class ExpensesPage extends StatelessWidget {
      return BlocBuilder<ExpensesCubit,ExpensesState>(builder: (_, state) => Scaffold(
        body: Container(
          width: double.maxFinite,
-         color: AppTheme.colors.background,
+         color: AppTheme.colors.white,
          child: Column(
            children: [
              Container(
