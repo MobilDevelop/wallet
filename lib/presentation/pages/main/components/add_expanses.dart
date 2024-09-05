@@ -5,10 +5,11 @@ import 'package:wallet_app/presentation/assets/theme/app_theme.dart';
 
 class AddExpenses extends StatelessWidget {
   const AddExpenses({
-    super.key, required this.visibleAdd,
+    super.key, required this.visibleAdd, required this.press,
   });
 
   final bool visibleAdd;
+  final Function press;
 
   @override
   Widget build(BuildContext context) {
@@ -20,19 +21,22 @@ class AddExpenses extends StatelessWidget {
       child: Row(
        children: [
           Expanded(
-            child: AnimatedContainer(
-              height: double.maxFinite,
-              width: double.maxFinite,
-              duration: const Duration(milliseconds: 500),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: AppTheme.colors.red,
-               borderRadius: BorderRadius.horizontal(left: Radius.circular(visibleAdd?23.r:0)),   
+            child: InkWell(
+              onTap: () => press(1),
+              child: AnimatedContainer(
+                height: double.maxFinite,
+                width: double.maxFinite,
+                duration: const Duration(milliseconds: 500),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: AppTheme.colors.red,
+                 borderRadius: BorderRadius.horizontal(left: Radius.circular(visibleAdd?23.r:0)),   
+                ),
+                child: Text("Xarajat kiritish",
+                maxLines: 1,
+                overflow: TextOverflow.fade,
+                style: AppTheme.data.textTheme.displaySmall?.copyWith(color: AppTheme.colors.white)),
               ),
-              child: Text("Xarajat kiritish",
-              maxLines: 1,
-              overflow: TextOverflow.fade,
-              style: AppTheme.data.textTheme.displaySmall?.copyWith(color: AppTheme.colors.white)),
             ),
           ),
           AnimatedContainer(
@@ -42,19 +46,22 @@ class AddExpenses extends StatelessWidget {
             color: AppTheme.colors.white, 
             ),
           Expanded(
-            child: AnimatedContainer(
-              height: double.maxFinite,
-              width: double.maxFinite,
-              duration: const Duration(milliseconds: 500),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: AppTheme.colors.green,
-                 borderRadius: BorderRadius.horizontal(right: Radius.circular(visibleAdd? 23.r:0)),
+            child: InkWell(
+              onTap: () => press(2),
+              child: AnimatedContainer(
+                height: double.maxFinite,
+                width: double.maxFinite,
+                duration: const Duration(milliseconds: 500),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: AppTheme.colors.green,
+                   borderRadius: BorderRadius.horizontal(right: Radius.circular(visibleAdd? 23.r:0)),
+                ),
+                child: Text("Daromad kiritish",
+                maxLines: 1,
+                overflow: TextOverflow.fade,
+                style: AppTheme.data.textTheme.displaySmall?.copyWith(color: AppTheme.colors.white)),
               ),
-              child: Text("Daromad kiritish",
-              maxLines: 1,
-              overflow: TextOverflow.fade,
-              style: AppTheme.data.textTheme.displaySmall?.copyWith(color: AppTheme.colors.white)),
             ),
           )
         ],

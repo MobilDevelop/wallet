@@ -38,6 +38,7 @@ dependencies:
   animations: ^2.0.7
   rive: ^0.11.2
   flutter_expandable_fab: ^2.2.0
+  animate_icons: ^2.0.0
 
   # Helpers
   flutter_screenutil: ^5.6.1

@@ -1,3 +1,4 @@
+import 'package:animate_icons/animate_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/application/main/main_state.dart';
@@ -11,11 +12,15 @@ class MainCubit extends Cubit<MainState>{
   MainCubit():super(MainInitial()){
     init(0);
   }
+
+  final iconController = AnimateIconController();
   
   int currentIndex = 0;
+  int moneyType = 0;
 
   bool setType = false;
   bool visibleAdd = false;
+  bool addVisible = false;
 
   Widget currentScreen = Container();
 
@@ -48,5 +53,11 @@ class MainCubit extends Cubit<MainState>{
    sideMenus[index].input!.change(false);
     });
     
+  }
+
+  void showVisible(int type){
+    addVisible = !addVisible;
+    moneyType = type;
+    emit(MainInitial());
   }
 }
