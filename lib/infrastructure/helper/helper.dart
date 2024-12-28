@@ -7,37 +7,50 @@ class Helper{
       return rng.nextInt(17);
   }
 
-  static String dateFormat(DateTime? date){
-      return date==null?"": DateFormat('yyyy-MM-dd').format(date);
+  
+
+  static String dateFormat(String date){
+    DateTime parseDate = DateFormat("yyyy-MM-dd hh:mm:ss").parse(date);
+    DateTime inputDate = DateTime.parse(parseDate.toString());  
+    return "${inputDate.year}-yil ${inputDate.day}-${Helper.monthReturned(inputDate.month)}";
   }
 
+  static String timeFormat(String date){
+    DateTime parseDate = DateFormat("yyyy-MM-dd hh:mm:ss").parse(date);
+    DateTime inputDate = DateTime.parse(parseDate.toString());  
+    DateFormat outputFormat = DateFormat('hh:mm:ss');
+    String outputDate = outputFormat.format(inputDate);
+    return outputDate;
+  }
 
    static String homeDate(DateTime dateTime){
     
     int day = dateTime.day;
     int year = dateTime.year;
-
-    String month = "";
-
-    switch (dateTime.month) {
-      case 1:month = "Yanvar"; break;
-      case 2:month = "Fevral"; break;
-      case 3:month = "Mart"; break;
-      case 4:month = "Aprel"; break;
-      case 5:month = "May"; break;
-      case 6:month = "Iyun"; break;
-      case 7:month = "Iyul"; break;
-      case 8:month = "Avgust"; break;
-      case 9:month = "Sentyabr"; break;
-      case 10:month = "Oktyabr"; break;
-      case 11:month = "Noyabr"; break;
-      case 12:month = "Dekabr"; break;
-    }
-
-    
+    String month = monthReturned(dateTime.month);
 
     return "Bugun $day-$month $year-yil";
   }
+
+
+  static String monthReturned(int index){
+   switch (index) {
+     case 1: return "Yanvar";
+     case 2: return "Fevral";
+     case 3: return "Mart";
+     case 4: return "Aprel";
+     case 5: return "May";
+     case 6: return "Iyun";
+     case 7: return "Iyul";
+     case 8: return "Avgust";
+     case 9: return "Sentyabr";
+     case 10: return "Oktyabr";
+     case 11: return "Noyabr";
+     case 12: return "Dekabr";
+
+     default: return "";
+    }
+ }
 
   static bool isEmail(String em) {
 

@@ -15,11 +15,11 @@ class BottomBar extends StatelessWidget {
   @override 
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: ScreenSize.w16,right:ScreenSize.w16,top:ScreenSize.h4,bottom:ScreenSize.h4),
-      margin: EdgeInsets.symmetric(horizontal: ScreenSize.w10,vertical: ScreenSize.h16),
+      padding: EdgeInsets.only(left: ScreenSize.h15,right:ScreenSize.h15,top:ScreenSize.h4,bottom:ScreenSize.h4),
+      margin: EdgeInsets.symmetric(horizontal: ScreenSize.w10,vertical: ScreenSize.h5),
       decoration: BoxDecoration(
-        color: AppTheme.colors.primary,
-        borderRadius: BorderRadius.circular(24.r),
+        color: AppTheme.colors.intro3,
+        borderRadius: BorderRadius.circular(22.r),
         border: Border.all(
             color: AppTheme.colors.white,
             width: 2
@@ -39,7 +39,7 @@ class BottomBar extends StatelessWidget {
           ...List.generate(
             sideMenus.length,
             (index)=>Container(
-             width: ScreenSize.w50,
+              width: ScreenSize.w50,
               margin: EdgeInsets.only(left: index==2?ScreenSize.h25:0,right: index==1?ScreenSize.h25:0),
               child: GestureDetector(
                       onTap: ()=>ontap(index),
@@ -48,7 +48,7 @@ class BottomBar extends StatelessWidget {
               children: [
                 AnimatedContainer(
                   duration: const Duration(milliseconds: 200),
-                  height: ScreenSize.h4,
+                  height: ScreenSize.h3,
                   width: sideMenus[index]==selectBottomNav? 50.w:0,
                   margin: EdgeInsets.only(bottom: ScreenSize.h4),
                   decoration: BoxDecoration(
@@ -57,8 +57,8 @@ class BottomBar extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 35.h,
-                  width: 35.h,
+                  height: 33.h,
+                  width: 33.h,
                   child:  Opacity( 
                     opacity: sideMenus[index]==selectBottomNav?1:0.5,
                     child: RiveAnimation.asset(
@@ -72,7 +72,9 @@ class BottomBar extends StatelessWidget {
                     ),
                   ),
                 ),
-               sideMenus[index]==selectBottomNav?Text(sideMenus[index].title,style: AppTheme.data.textTheme.labelSmall!.copyWith(color: AppTheme.colors.white)):Gap(ScreenSize.h8)
+               sideMenus[index]==selectBottomNav?Text(sideMenus[index].title,
+               maxLines: 1,
+               style: AppTheme.data.textTheme.labelSmall!.copyWith(color: AppTheme.colors.white,fontSize: 10.sp)):Gap(ScreenSize.h8)
               ],
                       ),
                     ),

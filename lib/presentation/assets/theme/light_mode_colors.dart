@@ -5,5 +5,5 @@ class LightModeColors extends BaseColors {
   const LightModeColors();
 
   @override
-  Color get background => const Color.fromRGBO(255, 255, 255, 1);
+  Color get background => const Color.fromRGBO(243, 245, 252, 1);
 }

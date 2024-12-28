@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -19,28 +20,24 @@ class StatisticPage extends StatelessWidget {
        StatisticCubit cubit = _.read<StatisticCubit>();
 
        return BlocBuilder<StatisticCubit,StatisticState>(builder: (_, state) => Scaffold(
-         body: Container(
-          width: double.maxFinite,
-          color: AppTheme.colors.softGray,
-           child: Column(
-            children: [
-              Container(
-                height: 80.h,
-                width: double.maxFinite,
-                color: AppTheme.colors.white,
-                alignment: Alignment.bottomCenter,
-                padding: EdgeInsets.only(bottom: ScreenSize.h10),
-                child: Text("Statistika",style: AppTheme.data.textTheme.headlineMedium),
+           backgroundColor: AppTheme.colors.background,
+           appBar: AppBar(
+                elevation: 0,
+                backgroundColor: AppTheme.colors.white,
+                centerTitle: true,
+                toolbarHeight: 37.h,
+                title: Text(tr('Statistika'),
+                  style: AppTheme.data.textTheme.titleMedium),
               ),
-              Gap(ScreenSize.h15),
+             body: Column(
+              children: [
+             Gap(ScreenSize.h15),
+             Statistic(),
+             Gap(ScreenSize.h10),
 
-              Statistic(),
-              Gap(ScreenSize.h10),
-
-              DayInfo()
+             DayInfo()
             ],
-           ),
-         )
+           )
        ));
      },),
     );

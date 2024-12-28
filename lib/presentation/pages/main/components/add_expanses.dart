@@ -17,7 +17,7 @@ class AddExpenses extends StatelessWidget {
       duration: const Duration(milliseconds: 500),
       height: 63.h,
       width: visibleAdd? MediaQuery.of(context).size.width:0,
-      margin: EdgeInsets.only(bottom: ScreenSize.h18,left: ScreenSize.h10,right: ScreenSize.h10),
+      margin: EdgeInsets.only(bottom: ScreenSize.h6,left: ScreenSize.h10,right: ScreenSize.h10),
       child: Row(
        children: [
           Expanded(
@@ -30,9 +30,9 @@ class AddExpenses extends StatelessWidget {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: AppTheme.colors.red,
-                 borderRadius: BorderRadius.horizontal(left: Radius.circular(visibleAdd?23.r:0)),   
+                 borderRadius: BorderRadius.horizontal(left: Radius.circular(visibleAdd?22.r:0)),   
                 ),
-                child: Text("Xarajat kiritish",
+                child: Text("Xarajat",
                 maxLines: 1,
                 overflow: TextOverflow.fade,
                 style: AppTheme.data.textTheme.displaySmall?.copyWith(color: AppTheme.colors.white)),
@@ -54,10 +54,10 @@ class AddExpenses extends StatelessWidget {
                 duration: const Duration(milliseconds: 500),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: AppTheme.colors.green,
+                  color: AppTheme.colors.primary,
                    borderRadius: BorderRadius.horizontal(right: Radius.circular(visibleAdd? 23.r:0)),
                 ),
-                child: Text("Daromad kiritish",
+                child: Text("Daromad",
                 maxLines: 1,
                 overflow: TextOverflow.fade,
                 style: AppTheme.data.textTheme.displaySmall?.copyWith(color: AppTheme.colors.white)),

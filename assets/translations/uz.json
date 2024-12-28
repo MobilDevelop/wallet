@@ -8,9 +8,9 @@
   },
 
   "main":{
-    "home":"Home",
+    "home":"Dashboard",
     "expenses":"Harajatlar",
     "statistic":"Statistika",
-    "profile":"Profile"
+    "profile":"Profil"
   }
 }

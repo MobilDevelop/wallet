@@ -16,11 +16,11 @@ class AddButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
 
-      margin: EdgeInsets.only(bottom: ScreenSize.h50),
+      margin: EdgeInsets.only(bottom: ScreenSize.h30),
       padding: EdgeInsets.all(ScreenSize.h5),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: AppTheme.colors.primary,
+        color: AppTheme.colors.intro3,
         border: Border.all(
           color: AppTheme.colors.white,
           width: ScreenSize.h2
@@ -40,7 +40,7 @@ class AddButton extends StatelessWidget {
       press();
       return true;
     },
-    duration: const Duration(milliseconds: 100),
+    duration: const Duration(milliseconds: 500),
     startIconColor: Colors.white,
     endIconColor: Colors.white,
     clockwise: true,

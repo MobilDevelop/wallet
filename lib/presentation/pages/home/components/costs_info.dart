@@ -5,8 +5,10 @@ import 'package:wallet_app/presentation/assets/asset_index.dart';
 
 class HomeCostsInfo extends StatelessWidget {
   const HomeCostsInfo({
-    super.key,
+    super.key, required this.input, required this.output,
   });
+  final String input;
+  final String output;
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +18,12 @@ class HomeCostsInfo extends StatelessWidget {
       margin: EdgeInsets.only(bottom: ScreenSize.h20),
       decoration: BoxDecoration(
         color: AppTheme.colors.white,
-        borderRadius: BorderRadius.circular(ScreenSize.r20),
+        borderRadius: BorderRadius.circular(ScreenSize.r15),
         boxShadow: [
           BoxShadow(
             color: AppTheme.colors.black.withOpacity(.1),
             blurRadius: ScreenSize.h5,
-            spreadRadius: 5,
+            spreadRadius: ScreenSize.h1,
             offset: const Offset(5, 5)
           )
         ]
@@ -33,16 +35,16 @@ class HomeCostsInfo extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Joriy oydagi kirim:",style: AppTheme.data.textTheme.titleSmall!.copyWith(color: AppTheme.colors.textSecondary)),
-              Text("${Helper.toProcessCost("15000000")} so'm",style: AppTheme.data.textTheme.titleMedium!.copyWith(color: AppTheme.colors.green))
+              Text("Joriy oydagi kirim:",style: AppTheme.data.textTheme.labelMedium!.copyWith(color: AppTheme.colors.textSecondary)),
+              Text("${Helper.toProcessCost(input)} so'm",style: AppTheme.data.textTheme.titleMedium!.copyWith(color: AppTheme.colors.primary))
             ],
           ),
           Gap(ScreenSize.h5),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Joriy oydagi chiqim:",style: AppTheme.data.textTheme.titleSmall!.copyWith(color: AppTheme.colors.textSecondary)),
-              Text("${Helper.toProcessCost("6000000")} so'm",style: AppTheme.data.textTheme.titleMedium!.copyWith(color: AppTheme.colors.red))
+              Text("Joriy oydagi chiqim:",style: AppTheme.data.textTheme.labelMedium!.copyWith(color: AppTheme.colors.textSecondary)),
+              Text("${Helper.toProcessCost(output)} so'm",style: AppTheme.data.textTheme.titleMedium!.copyWith(color: AppTheme.colors.red))
             ],
           ),
         ],

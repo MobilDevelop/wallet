@@ -45,6 +45,14 @@ class MainPage extends StatelessWidget {
                 visible: cubit.addVisible,
                 child: Money(
                   type: cubit.moneyType,
+                  items: cubit.categorys,
+                  selected: cubit.selected,
+                  errorCategory: cubit.errorCategory,
+                  errorPrice: cubit.errorPrice,
+                  moneyController: cubit.priceController,
+                  commentController: cubit.commentController,
+                  onSelect: cubit.onSelectCat,
+                  successPress: cubit.saveInfo,
                   showVisible:()=> cubit.showVisible(0)).animate().fadeIn().fade(),
               )
            ],

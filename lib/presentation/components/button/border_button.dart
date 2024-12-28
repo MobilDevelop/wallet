@@ -1,11 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bounce/flutter_bounce.dart' as f_bounce;
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:wallet_app/presentation/assets/res/screen_size.dart';
-import 'package:wallet_app/presentation/assets/theme/app_theme.dart';
+import 'package:wallet_app/presentation/assets/asset_index.dart';
 
 class BorderButton extends StatelessWidget {
   const BorderButton({
@@ -27,20 +24,21 @@ class BorderButton extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget current = Text(
       text,
-      style: AppTheme.data.textTheme.titleSmall
-          ?.copyWith(color: borderColor ?? AppTheme.colors.black),
+      style: AppTheme.data.textTheme.bodyLarge
+          ?.copyWith(color: borderColor ?? AppTheme.colors.primary),
     );
 
     if (icon != null) {
       current = Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          current,
+          Gap(text.isEmpty?0:ScreenSize.w12),
           SvgPicture.asset(
             icon!,
+            color: borderColor ?? AppTheme.colors.text900,
             height: ScreenSize.h20,
-          ),
-          Gap(ScreenSize.w12),
-          current
+          )
         ],
       );
     }
@@ -50,13 +48,16 @@ class BorderButton extends StatelessWidget {
       duration: const Duration(milliseconds: 150),
       child: Container(
         width: width,
+        height: 30.h,
         padding: EdgeInsets.symmetric(
-            horizontal: icon != null ? 0 : ScreenSize.w24,
-            vertical: ScreenSize.h6),
+            horizontal: icon != null ? ScreenSize.h10 : ScreenSize.w24,
+            vertical: ScreenSize.h5),
         decoration: BoxDecoration(
-            color: AppTheme.colors.white,
-            borderRadius: BorderRadius.circular(15.r),
-            border: Border.all(color: borderColor ?? AppTheme.colors.textSecondary)),
+            color: borderColor == null
+                ? AppTheme.colors.primary.withOpacity(0.04)
+                : borderColor!.withOpacity(0.04),
+            borderRadius: BorderRadius.circular(10.r),
+            border: Border.all(color: borderColor ?? AppTheme.colors.primary,width: 1.5)),
         alignment: Alignment.center,
         child: current,
       ),

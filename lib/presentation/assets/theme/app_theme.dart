@@ -83,7 +83,7 @@ class AppTheme {
 
 
     data = ThemeData( 
-      fontFamily: 'Cabin',
+      fontFamily: 'Samsung',
       textTheme: textTheme,
       backgroundColor: colors.background,
       scaffoldBackgroundColor: colors.background,

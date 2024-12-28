@@ -13,24 +13,18 @@ class HomeTop extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 75.h,
-          alignment: Alignment.bottomCenter,
-          padding: EdgeInsets.only(bottom: ScreenSize.h10),
-          child: Text("Dashboard",style: AppTheme.data.textTheme.headlineMedium,),
-        ),
-        Container(
-          height: 55.h,
+          height: 60.h,
           width: double.maxFinite,
           padding: EdgeInsets.only(left: ScreenSize.h20),
-          margin: EdgeInsets.only(bottom: ScreenSize.h25),
+          margin: EdgeInsets.only(bottom: ScreenSize.h15),
           decoration: BoxDecoration(
             color: AppTheme.colors.white,
-            borderRadius: BorderRadius.circular(ScreenSize.r20),
+            borderRadius: BorderRadius.circular(ScreenSize.r15),
             boxShadow: [
               BoxShadow(
                 color: AppTheme.colors.black.withOpacity(.1),
                 blurRadius: ScreenSize.h5,
-                spreadRadius: 5,
+                spreadRadius: ScreenSize.h1,
                 offset: const Offset(5, 5)
               )
             ]
