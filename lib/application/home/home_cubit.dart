@@ -9,12 +9,15 @@ class HomeCubit extends Cubit<HomeState>{
   }
 
 
-  int allIncome = 0;
-  int allOutput = 0;
+  int allIncome = 1;
+  int allOutput = 1;
+
+  bool loading = true;
 
   init()async{
     List<ExpensesInfo> items = await MainService().getPricesInfo("Ayubxon1");
-    
+      allIncome = 0;
+      allOutput = 0;
     for (ExpensesInfo element in items) {
       if(element.type=="Kirim"){
         allIncome+=int.parse(element.value);
@@ -22,6 +25,7 @@ class HomeCubit extends Cubit<HomeState>{
         allOutput+=int.parse(element.value);
       }
     }
+    loading = false;
     emit(HomeInitial());
   }
 }

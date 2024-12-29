@@ -36,10 +36,7 @@ class Loading extends StatelessWidget {
               filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
               child: Container(
                 alignment: Alignment.center,
-               child: LoadingAnimationWidget.discreteCircle(color: AppTheme.colors.primary, 
-               secondRingColor: AppTheme.colors.white,
-               thirdRingColor: AppTheme.colors.white,
-               size: 50)
+               child: current
               )
               ),
        ),

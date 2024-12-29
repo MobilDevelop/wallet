@@ -13,13 +13,13 @@ class StatisticPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<StatisticCubit,StatisticState>(listener: (_, state) {
+    return BlocListener<StatisticCubit,StatisticState>(listener: (context, state) {
       
     },
-     child: Builder(builder: (_) {
-       StatisticCubit cubit = _.read<StatisticCubit>();
+     child: Builder(builder: (context) {
+       StatisticCubit cubit = context.read<StatisticCubit>();
 
-       return BlocBuilder<StatisticCubit,StatisticState>(builder: (_, state) => Scaffold(
+       return BlocBuilder<StatisticCubit,StatisticState>(builder: (context, state) => Scaffold(
            backgroundColor: AppTheme.colors.background,
            appBar: AppBar(
                 elevation: 0,
@@ -29,13 +29,17 @@ class StatisticPage extends StatelessWidget {
                 title: Text(tr('Statistika'),
                   style: AppTheme.data.textTheme.titleMedium),
               ),
-             body: Column(
+             body: ListView(
               children: [
              Gap(ScreenSize.h15),
              Statistic(),
              Gap(ScreenSize.h10),
-
-             DayInfo()
+             ListView.builder(
+              itemCount: cubit.items.length,
+              padding: EdgeInsets.only(bottom: 80.h),
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemBuilder: (context, index) => DayInfo(info: cubit.items[index]))
             ],
            )
        ));

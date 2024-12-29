@@ -6,6 +6,7 @@ import 'package:wallet_app/application/home/home_cubit.dart';
 import 'package:wallet_app/application/home/home_state.dart';
 import 'package:wallet_app/infrastructure/models/expenses/expenses_info.dart';
 import 'package:wallet_app/presentation/assets/asset_index.dart';
+import 'package:wallet_app/presentation/components/animation_loading/loading.dart';
 import 'package:wallet_app/presentation/pages/home/components/costs_info.dart';
 import 'package:wallet_app/presentation/pages/home/components/home_top.dart';
 
@@ -32,22 +33,29 @@ class HomePage extends StatelessWidget {
                 title: Text(tr('Dashboard'),
                   style: AppTheme.data.textTheme.titleMedium),
               ),
-        body: Container(
-          width: double.maxFinite,
-          padding: EdgeInsets.symmetric(horizontal: ScreenSize.h12),
-          child: Column(
-            children: [
-              Gap(ScreenSize.h15),
-              const HomeTop(),
+        body: Stack(
+          children: [
+            Container(
+              width: double.maxFinite,
+              padding: EdgeInsets.symmetric(horizontal: ScreenSize.h12),
+              child: Column(
+                children: [
+                  Gap(ScreenSize.h15),
+                  const HomeTop(),
 
-              Expanded(child: ChartInfo(input: cubit.allIncome,output: cubit.allOutput)),
-              Gap(ScreenSize.h15),
+                  Expanded(child: ChartInfo(input: cubit.allIncome,output: cubit.allOutput)),
+                  Gap(ScreenSize.h15),
 
-              HomeCostsInfo(input: cubit.allIncome.toString(),output: cubit.allOutput.toString()),
+                  HomeCostsInfo(input: cubit.allIncome.toString(),output: cubit.allOutput.toString()),
 
-              Gap(80.h),
-            ],
-          ),
+                  Gap(80.h),
+                ],
+              ),
+            ),
+            Visibility(
+              visible: cubit.loading,
+              child: const Loading())
+          ],
         )
       ));
     },),

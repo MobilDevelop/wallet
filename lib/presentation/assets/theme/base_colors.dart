@@ -19,6 +19,8 @@ abstract class BaseColors {
   Color get softBlue => const Color.fromRGBO(232, 241, 246, 1);
   Color get softGray => const Color.fromRGBO(249,249,249, 1);
   Color get gray1 => const Color.fromRGBO(235,235,235, 1);
+  Color get grey => const Color.fromRGBO(121,129,121, 1);
+  Color get gold => const Color.fromRGBO(246, 196, 65, 1);
 
   Color get black => const Color.fromRGBO(0, 0, 0, 1);
   Color get text900 => const Color.fromRGBO(0, 0, 0, 1);

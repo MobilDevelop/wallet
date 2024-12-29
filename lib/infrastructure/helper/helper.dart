@@ -12,13 +12,13 @@ class Helper{
   static String dateFormat(String date){
     DateTime parseDate = DateFormat("yyyy-MM-dd hh:mm:ss").parse(date);
     DateTime inputDate = DateTime.parse(parseDate.toString());  
-    return "${inputDate.year}-yil ${inputDate.day}-${Helper.monthReturned(inputDate.month)}";
+    return "${inputDate.day}-${Helper.monthReturned(inputDate.month)}";
   }
 
   static String timeFormat(String date){
     DateTime parseDate = DateFormat("yyyy-MM-dd hh:mm:ss").parse(date);
     DateTime inputDate = DateTime.parse(parseDate.toString());  
-    DateFormat outputFormat = DateFormat('hh:mm:ss');
+    DateFormat outputFormat = DateFormat('hh:mm');
     String outputDate = outputFormat.format(inputDate);
     return outputDate;
   }
