@@ -18,8 +18,8 @@ class Helper{
   static String timeFormat(String date){
     DateTime parseDate = DateFormat("yyyy-MM-dd hh:mm:ss").parse(date);
     DateTime inputDate = DateTime.parse(parseDate.toString());  
-    DateFormat outputFormat = DateFormat('hh:mm');
-    String outputDate = outputFormat.format(inputDate);
+    DateFormat outputFormat = DateFormat('HH:mm');
+    String outputDate = outputFormat.format(inputDate); 
     return outputDate;
   }
 

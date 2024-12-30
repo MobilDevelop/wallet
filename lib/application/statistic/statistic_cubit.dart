@@ -25,7 +25,7 @@ class StatisticCubit extends Cubit<StatisticState>{
       int allPrice = 0;
 
       for (ExpensesInfo element in expenses) {
-        if(element.category.id == category.id){
+        if(element.category.id == category.id && element.type=="Chiqim"){
           allPrice+= int.parse(element.value);
           newData.add(element);
         }

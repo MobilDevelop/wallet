@@ -69,7 +69,7 @@ class DayInfo extends StatelessWidget {
                       alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: AppTheme.colors.gold,
-                      borderRadius: BorderRadius.horizontal(left: Radius.circular(ScreenSize.r6))
+                      borderRadius: BorderRadius.horizontal(left: Radius.circular(ScreenSize.r4))
                     ),
                     child: Text("${((info.allPrice/info.limit)*100).round()}%",style: AppTheme.data.textTheme.bodyMedium),
                   )),
@@ -80,7 +80,7 @@ class DayInfo extends StatelessWidget {
                       alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: AppTheme.colors.gray1,
-                      borderRadius: BorderRadius.horizontal(right: Radius.circular(ScreenSize.r6))
+                      borderRadius: BorderRadius.horizontal(right: Radius.circular(ScreenSize.r4))
                     ),
                     child: Text("${(((info.limit-info.allPrice)/info.limit)*100).round()}%",style: AppTheme.data.textTheme.bodyMedium),
                   ))

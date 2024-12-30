@@ -8,6 +8,7 @@ class AppIcons {
   static const String google = "assets/icons/google.svg";
   static const String receive = "assets/icons/receive.svg";
   static const String send = "assets/icons/send.svg";
+  static const String filter = "assets/icons/filter.svg";
 
 
   // png images

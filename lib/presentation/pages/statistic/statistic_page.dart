@@ -39,7 +39,7 @@ class StatisticPage extends StatelessWidget {
               padding: EdgeInsets.only(bottom: 80.h),
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemBuilder: (context, index) => DayInfo(info: cubit.items[index]))
+              itemBuilder: (context, index) => cubit.items[index].items.isEmpty?Container():DayInfo(info: cubit.items[index]))
             ],
            )
        ));
