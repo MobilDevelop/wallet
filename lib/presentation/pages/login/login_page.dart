@@ -22,12 +22,14 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(create: (context) => LoginCubit(),
-    child: BlocListener<LoginCubit,LoginState>(listener: (_, state) {
-      
+    child: BlocListener<LoginCubit,LoginState>(listener: (context, state) {
+      if(state is LoginNextMain){
+        context.pushReplacement(Routes.main.path);
+      }
     },
-    child: Builder(builder: (_) {
-      final LoginCubit cubit = _.read<LoginCubit>();
-      return BlocBuilder<LoginCubit,LoginState>(builder: (_, state) => Scaffold(
+    child: Builder(builder: (context) {
+      final LoginCubit cubit = context.read<LoginCubit>();
+      return BlocBuilder<LoginCubit,LoginState>(builder: (context, state) => Scaffold(
         backgroundColor: AppTheme.colors.background,
         body: Container(
           width: double.maxFinite,
@@ -50,15 +52,13 @@ class LoginPage extends StatelessWidget {
                 showForgot: true,
                 eyePress: cubit.eyePress,
                 forgotPassword: () {
-                  _.push(Routes.forget.path);
+                  context.push(Routes.forget.path);
                 },
                 eyeShow: cubit.eyeShow,
               ),
               
-              MainButton(text: "Log In", onPressed: (){
-                _.push(Routes.main.path);
-              }),
-              Gap(ScreenSize.h20),
+              MainButton(text: "Log In", onPressed:cubit.enterMain),
+              Gap(ScreenSize.h30),
 
               BorderButton(
                 onPressed: cubit.googleAuth, 
@@ -71,7 +71,7 @@ class LoginPage extends StatelessWidget {
                 children: [
                   Text("Don't have an account?",style: AppTheme.data.textTheme.bodyMedium),
                   TextButton(onPressed: (){
-                    _.push(Routes.registration.path);
+                    context.push(Routes.registration.path);
                   }, child: Text("Register here",style: AppTheme.data.textTheme.bodyMedium!.copyWith(color: AppTheme.colors.blue,fontWeight: FontWeight.w600)))
                 ],
               )

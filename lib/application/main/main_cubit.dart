@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:wallet_app/application/main/main_state.dart';
 import 'package:wallet_app/domain/provider/main_service.dart';
+import 'package:wallet_app/infrastructure/local_source/local_source.dart';
 import 'package:wallet_app/infrastructure/models/expenses/category.dart';
 import 'package:wallet_app/infrastructure/models/expenses/expenses_info.dart';
 import 'package:wallet_app/infrastructure/models/rive_models.dart';
@@ -53,6 +54,9 @@ class MainCubit extends Cubit<MainState>{
 
   /// firebaseda jadvaldan kategoriyalar va barcha pul ishlanmalarini olib keladi
    getInfo()async{
+    
+    String uuid = await LocalSource.getInfo(key: "UserUUID");
+
     items = await MainService().getPricesInfo("Ayubxon1");
     categorys = await MainService().getCategories("Ayubxon1");
     emit(MainInitial());

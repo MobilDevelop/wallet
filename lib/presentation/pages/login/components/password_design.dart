@@ -46,13 +46,6 @@ class Password extends StatelessWidget {
       )
      ),
     ),
-    Visibility(
-      visible: showForgot!=null,
-      child: Container(
-        width: double.maxFinite,
-        alignment: Alignment.centerRight,
-        child: TextButton(onPressed: forgotPassword, child: Text("Forgot Password?",style: AppTheme.data.textTheme.labelSmall!.copyWith(color: AppTheme.colors.blue)))),
-    ),
     Gap(ScreenSize.h20)
    ],
  );

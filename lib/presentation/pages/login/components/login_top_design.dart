@@ -18,7 +18,7 @@ class LoginTop extends StatelessWidget {
               Text("Login",style: AppTheme.data.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w700)),
               Gap(ScreenSize.h5),
               Text("login to continue using to the app",style: AppTheme.data.textTheme.labelSmall!.copyWith(color: AppTheme.colors.textSecondary)),
-              Gap(ScreenSize.h30),
+              Gap(ScreenSize.h20),
       ],
     );
   }

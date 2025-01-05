@@ -20,6 +20,7 @@ class Email extends StatelessWidget {
     Gap(ScreenSize.h5),
     TextField(
       controller: controller,
+      keyboardType: TextInputType.emailAddress,
      decoration: InputDecoration(
       hintText: hint,
       contentPadding: EdgeInsets.only(left: ScreenSize.h10,top: ScreenSize.h12,bottom: ScreenSize.h12),
@@ -38,7 +39,7 @@ class Email extends StatelessWidget {
       )
      ),
     ),
-    Gap(ScreenSize.h20)
+    Gap(ScreenSize.h15)
    ],
  );
 }

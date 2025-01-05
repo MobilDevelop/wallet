@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 
 final GoRouter router = GoRouter(
-    initialLocation: Routes.main.path,
+    initialLocation: Routes.login.path,
     debugLogDiagnostics: true,
     routes: <GoRoute>[
       

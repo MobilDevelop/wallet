@@ -48,7 +48,7 @@ class BorderButton extends StatelessWidget {
       duration: const Duration(milliseconds: 150),
       child: Container(
         width: width,
-        height: 30.h,
+        height: ScreenSize.h35,
         padding: EdgeInsets.symmetric(
             horizontal: icon != null ? ScreenSize.h10 : ScreenSize.w24,
             vertical: ScreenSize.h5),
@@ -56,7 +56,7 @@ class BorderButton extends StatelessWidget {
             color: borderColor == null
                 ? AppTheme.colors.primary.withOpacity(0.04)
                 : borderColor!.withOpacity(0.04),
-            borderRadius: BorderRadius.circular(10.r),
+            borderRadius: BorderRadius.circular(ScreenSize.r15),
             border: Border.all(color: borderColor ?? AppTheme.colors.primary,width: 1.5)),
         alignment: Alignment.center,
         child: current,
