@@ -5,9 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wallet_app/application/app_manager/app_manager_cubit.dart';
-import 'package:wallet_app/application/expenses/expenses_cubit.dart';
-import 'package:wallet_app/application/home/home_cubit.dart';
-import 'package:wallet_app/application/statistic/statistic_cubit.dart';
+import 'package:wallet_app/application/expenses/expenses_bloc.dart';
+import 'package:wallet_app/application/home/home_bloc.dart';
+import 'package:wallet_app/application/statistic/statistic_bloc.dart';
 import 'infrastructure/common/app_init.dart';
 import 'presentation/pages/manager/app_widget.dart';
 Future<void> main() async {
@@ -48,9 +48,9 @@ class _MyAppState extends State<MyApp>{
     return MultiBlocProvider(
         providers: [
           BlocProvider<AppManagerCubit>(create: (context) => AppManagerCubit()..init()),
-          BlocProvider<HomeCubit>(create: (context) => HomeCubit()),
-          BlocProvider<ExpensesCubit>(create: (context) => ExpensesCubit()),
-          BlocProvider<StatisticCubit>(create: (context) => StatisticCubit()),
+          BlocProvider<HomeBloc>(create: (context) => HomeBloc()),
+          BlocProvider<ExpensesBloc>(create: (context) => ExpensesBloc()),
+          BlocProvider<StatisticBloc>(create: (context) => StatisticBloc()),
              ], 
         child: ScreenUtilInit(
           minTextAdapt: true,

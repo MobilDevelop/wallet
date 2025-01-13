@@ -7,11 +7,10 @@ import 'package:wallet_app/presentation/assets/asset_index.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({
-    super.key, required this.ontap, required this.selectBottomNav, required this.colorType,
+    super.key, required this.ontap, required this.selectBottomNav,
     });
     final Function ontap;
     final  RiveAsset selectBottomNav;
-    final bool colorType;
   @override 
   Widget build(BuildContext context) {
     return Container(

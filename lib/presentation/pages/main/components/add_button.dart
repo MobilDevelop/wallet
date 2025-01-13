@@ -3,13 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:wallet_app/presentation/assets/asset_index.dart';
 
 class AddButton extends StatelessWidget {
-  const AddButton({
-    super.key,
-    required this.press, required this.iconType, required this.controller,
-  });
+  const AddButton({super.key,required this.press, required this.controller});
 
   final VoidCallback press;
-  final bool iconType;
   final AnimateIconController controller;
 
   @override

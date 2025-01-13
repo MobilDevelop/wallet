@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 
 final GoRouter router = GoRouter(
-    initialLocation: Routes.login.path,
+    initialLocation: Routes.main.path,
     debugLogDiagnostics: true,
     routes: <GoRoute>[
       
@@ -63,6 +63,7 @@ final GoRouter router = GoRouter(
       ),
 
     ],
+    
 
     
     errorBuilder: (_, state) => const SizedBox());

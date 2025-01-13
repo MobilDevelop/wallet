@@ -1,30 +1,25 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/application/statistic/statistic_event.dart';
 import 'package:wallet_app/application/statistic/statistic_state.dart';
 import 'package:wallet_app/domain/provider/main_service.dart';
 import 'package:wallet_app/infrastructure/models/expenses/category.dart';
 import 'package:wallet_app/infrastructure/models/expenses/expenses_info.dart';
 import 'package:wallet_app/infrastructure/models/statistic/statistic_info.dart';
 
-class StatisticCubit extends Cubit<StatisticState>{
-  StatisticCubit():super(StatisticInitial()){
-    init();
-  }
+class StatisticBloc extends Bloc<StatisticEvent,StatisticState>{
+  StatisticBloc():super(StatisticLoading()){
+     
+     on<StatistiGetInfoEvent>((event, emit)async{
+        
+        List<StatisticInfo> items = [];
+        
 
-  List<StatisticInfo> items = [];
+      for (ExpensesCategory category in await MainService().getCategories("Ayubxon1")) {
 
-  String startDate = "";
-  String endDate = "";
+       List<ExpensesInfo> newData = [];
+       int allPrice = 0;
 
-  init()async{
-    List<ExpensesInfo> expenses = await MainService().getPricesInfo("Ayubxon1");
-    List<ExpensesCategory> categorys = await MainService().getCategories("Ayubxon1");
-
-    for (ExpensesCategory category in categorys) {
-
-      List<ExpensesInfo> newData = [];
-      int allPrice = 0;
-
-      for (ExpensesInfo element in expenses) {
+      for (ExpensesInfo element in await MainService().getPricesInfo("Ayubxon1")) {
         if(element.category.id == category.id && element.type=="Chiqim"){
           allPrice+= int.parse(element.value);
           newData.add(element);
@@ -39,6 +34,9 @@ class StatisticCubit extends Cubit<StatisticState>{
       );
     }
     
-    emit(StatisticInitial());
+    emit(StatisticSuccess(items: items));
+     });
+
+     add(StatistiGetInfoEvent());
   }
 }
